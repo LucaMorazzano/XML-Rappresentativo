@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!ELEMENT telefoni (telefono+)>
+          <!ELEMENT telefono(modello, prezzo, componenti)>
+                    <!ATTLIST telefono
+                                    id  CDATA #REQUIRED
+                                    stato ( IT | US | EN | FR | GR | CH  )
+                                    os ( IOS | Android ) #REQUIRED
+                      >
+                      
+                      <!ELEMENT modello ( nome , annoproduzione )>
+                            <!ELEMENT nome (#PCDATA)>
+                            <!ELEMENT annoproduzione (#PCDATA)>
+                            
+                      <!ELEMENT prezzo (#PCDATA)>
+                      
+                      <!ELEMENT componenti (processore, schedagrafica, ram, schedarete, display)>
+                            <!ELEMENT processore (nome, frequenza)>
+                                            <!ELEMENT frequenza (#PCDATA)>
+                                            
+                            <!ELEMENT schedagrafica (nome, vram)>
+                                          <!ELEMENT vram (#PCDATA)>
+                                          
+                            <!ELEMENT ram (nome,quantita)>
+                                          <!ELEMENT quantita (#PCDATA)>
+                            
+                            <!ELEMENT schedarete (nome)>
+                                      <!ATTLIST schedarete 
+                                                          tecnologia ( 3G | 4G | 5G ) "4G" #REQUIRED>
+                                    
+                            <!ELEMENT display ( dimensioni )>
+                                    <!ELEMENT dimensioni (#PCDATA)>
+                                    <!ATTLIST tipologia ( OLED | AMOLED | IPS) #REQUIRED>
+              
+                                
+                            
