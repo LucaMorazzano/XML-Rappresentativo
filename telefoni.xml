@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding= "UTF-8"?>
-
-<!DOCTYPE telefoni[
+<!DOCTYPE telefoni SYSTEM "telefoni.dtd" >
+<!--<!DOCTYPE telefoni[
 <!ELEMENT telefoni (telefono+)>
           <!ELEMENT telefono (modello,prezzo,componenti)>
                     <!ATTLIST telefono
@@ -34,7 +34,7 @@
                                     <!ELEMENT dimensioni (#PCDATA)>
                                     <!ATTLIST display 
 									    tipologia (OLED|AMOLED|IPS) "IPS">
-					] >
+					] > -->
               
                                 
 <telefoni>

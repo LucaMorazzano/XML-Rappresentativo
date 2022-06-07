@@ -50,16 +50,6 @@ E' possibile arrivare a questa pagina solo mediante il bottone "effettua pagamen
 stampare un messaggio di arrivederci, mostrare ciò che è stato acquistato, aggiornare la spesa dell'utente nel dbs e mostrare la spesa totale dell'utente
 sul sito aggiornata con l'ultima operazione.
 
-#FUNZIONI ADMIN
-
-#1)ADMIN.PHP
-Come detto in precedenza dalla pagina Login.php è possibile essere reindirizzati alla pagina Admin.php. Tale pagina agisce nello stesso identico modo di login.php,
-con l'unica differenza che cerca compatibilità tra dati ricevuti e dati presenti nel dbs nella tabella Admin piuttosto che nella tabella Utente.
-Se i dati sono corretti e la form è valida saremo rimandati alla pagina Inserisci.php. In caso contrario saranno mostrati allert differenti in base all'errore.
-
-#2)INSERISCI.PHP
-Inserisci.php consente l'inserimento di nuovi modelli di smartphone nel dbs.
-
 #PAGINE AUSILIARIE
 
 #1)CONNECTION.PHP
