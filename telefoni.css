@@ -1,0 +1,41 @@
+telefoni{
+	display:block;
+	border: solid thick blue;
+	padding: 1% 5% 5% 5%;
+}
+telefono{
+	display:block;
+	border: solid thin blue;
+	margin: 1% 5% 5% 5%;
+	padding:3%;
+	background-color:beige;
+	text-align:center;
+}
+modello{
+	display:block;
+	font-size:30px;
+	color:blue;
+	font-weight:bold
+}
+prezzo{
+	display:block;
+	color:red;
+	font-weight:bold;
+	font-size:20px;
+}
+processore{
+	display:block;
+	font-style:oblique;
+}
+display{
+	display:block;
+	font-style:oblique;
+}
+schedagrafica{
+	display:block;
+	font-style:oblique;
+}
+ram{
+	display:block;
+	font-style:oblique;
+}

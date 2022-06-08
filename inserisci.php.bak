@@ -143,13 +143,14 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 		$nuovo->appendChild($nuovoRam);
 		$nuovo->appendChild($nuovoDisplay);
 		
-		
+		//inseriamo il nodo nel documento
 		$root->insertBefore($nuovo,$primo);
+		//ora che è stato creato settiamo l'attributo id che avevamo precedentemente generato
 		$first=$root->firstChild;
 		$first->setAttribute("id",$id);
 		//salviamo ora il file 
 		$filename="telefoni.xml";
-		if($doc->save($filename)){
+		if($doc->save($filename1)){
 			echo "<script>
 					alert(\"Inserimento riuscito\")</script>";
 				
