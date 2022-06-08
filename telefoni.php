@@ -110,11 +110,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 					$idvalue=$telefono->getAttribute('id'); //otteniamo attributo con metodo getAttribute
 					///////////SCORRIAMO L'ALBERO ED ESTRAIAMO ELEMENTI DI INTERESSE////////////
 					$modello= $telefono->firstChild;
-					$nome= $modello->firstChild; ///il primo figlio del nodo modello è nome estraiamolo
-					$nomevalue= $nome->textContent;
+					$modellovalue=$modello->textContent;
 					$prezzo= $modello->nextSibling; /////nextSibling ci porta al prossimo elemento
 					$prezzovalue= $prezzo->textContent;
-					echo"<p><input type=\"radio\"name=\"id\" value=";echo $idvalue;echo "><strong><a style=\"text-decoration:none;\"href=\"info.php\" title= \"scheda tecnica\">$nomevalue ($prezzovalue &euro;)</a></strong></p>"; /*stampiamo i modelli e prezzi*/
+					echo"<p><input type=\"radio\"name=\"id\" value=";echo $idvalue;echo "><strong><a style=\"text-decoration:none;\"href=\"info.php\" title= \"scheda tecnica\">$modellovalue ($prezzovalue &euro;)</a></strong></p>"; /*stampiamo i modelli e prezzi*/
 					
 				}
 				echo"<input type=\"submit\"value=\"aggiungi al carrello\">";/*bottone action del form*/
@@ -134,20 +133,17 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			if(isset($_SESSION['username']) && isset($_SESSION['password'])){ //SE abbiamo selezionato qualcosa e se siamo loggati
 				if(isset($_POST['id'])){
 				$id=$_POST['id']; //id del telefono scelto
-				$arraytelefoni=array();
 				//cerchiamo il telefono selezionato dall'array contenente tutti i telefoni
-				for($i=0; $i<sizeof($elementi); $i++)
-					array_push($arraytelefoni,$elementi->item($i)); //salviamo tutti i telefoni in un array
-				for($i=0; $i<sizeof($arraytelefoni);$i++){
-					if($arraytelefoni[$i]->getAttribute('id') == $id){ //cerchiamo da id 
-						$modello=$arraytelefoni[$i]->firstChild;
-						$nome= $modello->firstChild;
-						$nomevalue=$nome->textContent;
-						array_push($_SESSION['carrello'],$modello); //salviamo il modello nella sessione in un apposita variabile array
+				for($i=0; $i<sizeof($elementi);$i++){
+					if($elementi->item($i)->getAttribute('id') == $id){ //cerchiamo da id 
+						$modello=$elementi->item($i)->firstChild;
+						$modellovalue=$modello->textContent;
+						$_SESSION['modello']=$modellovalue;
+						array_push($_SESSION['carrello'],$_SESSION['modello']); //salviamo il modello nella sessione in un apposita variabile array
 						$prezzo=$modello->nextSibling;
 						$prezzovalue=(int)$prezzo->textContent; //casting necessario
 						$_SESSION['spesa_attuale']+=$prezzovalue; //aggiorniamo spesa corrente
-						$i=sizeof($arraytelefoni);
+						$i=sizeof($elementi);
 					}
 				}
 				
@@ -160,10 +156,8 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			}
 			if(isset($_SESSION['carrello'])&& isset($_SESSION['spesa_attuale'])){//se il carrello non è vuoto 
 							foreach($_SESSION['carrello'] as $item){ /*facciamo un ciclo foreach per stampare il contenuto*/
-								$nome=$item->firstChild;
-								$nomevalue=$nome->textContent;
 								echo"<p>";	
-								echo $nomevalue; /*stampiamo tutti i modelli che sono stati aggiunti al carrello*/
+								echo $item; /*stampiamo tutti i modelli che sono stati aggiunti al carrello*/
 								echo "</p>";
 							}
 							echo "<hr><strong>Totale spesa: ";echo $_SESSION['spesa_attuale']; echo"&euro;</strong>";
@@ -178,7 +172,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			<p><input type=\"submit\" name=\"checkout\" value=\"Checkout\"></p>
 			</form>"; //opzione per effettuare checkout
 			
-			$connection->close(); /*chiudiamo connessione con dbs*/
+			$connection->close();
 			?>
 		</div>
 		</div>

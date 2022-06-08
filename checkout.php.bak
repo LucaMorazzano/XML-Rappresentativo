@@ -74,12 +74,14 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			/*dopo stampiamo a schermo le info contenute negli array di sessione relativi al carrello*/
 			if(isset($_SESSION['carrello']) && isset($_SESSION['spesa_attuale'])){
 				///////////////SE IL CARRELLO E'PIENO
-				if($_SESSION['carrello'])){
+				if($_SESSION['carrello']){
 				echo "<table border=\"1\">
 						<tr class=\"borderrow\">
 						<td><h3>Carrello</h3></td>
 						</tr>";
 				foreach($_SESSION['carrello'] as $item){ /*METODO STAMPA ELEMENTI ARRAY*/
+					$prezzo=$item->nextSibling;
+					$prezzovalue=(int)$prezzo->textContent;
 					echo "<tr>
 						<td>$item</td>
 						</tr>";

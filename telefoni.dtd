@@ -1,33 +1,20 @@
 
 <!ELEMENT telefoni (telefono+)>
-          <!ELEMENT telefono (modello,prezzo,componenti)>
+          <!ELEMENT telefono (modello,prezzo,processore, schedagrafica,ram,display)>
                     <!ATTLIST telefono
                                     id  CDATA #REQUIRED
-                                    stato (IT|US|EN|FR|GR|CH) "IT"
-                                    os (IOS|Android) "IOS"
                       >
                       
-                      <!ELEMENT modello ( nome , annoproduzione )>
-                            <!ELEMENT nome (#PCDATA)>
-                            <!ELEMENT annoproduzione (#PCDATA)>
-                            
+                      <!ELEMENT modello (#PCDATA)>
+                    
                       <!ELEMENT prezzo (#PCDATA)>
-                      
-                      <!ELEMENT componenti (processore, schedagrafica, ram, schedarete, display)>
-                            <!ELEMENT processore (nome, frequenza)>
-                                            <!ELEMENT frequenza (#PCDATA)>
+                      <!ELEMENT processore (#PCDATA)>
                                             
-                            <!ELEMENT schedagrafica (nome, vram)>
-                                          <!ELEMENT vram (#PCDATA)>
+                      <!ELEMENT schedagrafica (#PCDATA)>
+  
                                           
-                            <!ELEMENT ram (nome,quantita)>
-                                          <!ELEMENT quantita (#PCDATA)>
+                      <!ELEMENT ram (#PCDATA)>
                             
-                            <!ELEMENT schedarete (nome)>
-                                      <!ATTLIST schedarete 
-                                             tecnologia (3G|4G|5G) "4G"
-											 >
-                                    
-                            <!ELEMENT display (dimensioni)>
-                                    <!ELEMENT dimensioni (#PCDATA)>
-                                    <!ATTLIST display  tipologia (OLED|AMOLED|IPS) "IPS">
+                      <!ELEMENT schedarete (#PCDATA)>
+                                  
+                        <!ELEMENT display (#PCDATA)>
