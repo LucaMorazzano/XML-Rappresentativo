@@ -91,7 +91,6 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			session_start(); /*avviamo la sessione (va avviata per ogni pagina)*/
 			require_once("connection.php");
 			$autocall=$_SERVER['PHP_SELF'];
-			$idvalue=1;
 			///////////////DOM SECTION//////////////////////////////////////////////////////////
 			/////////////////////////////////////////////////////////////////////////////////
 			/////INIZIALIZZIAMO LA STRINGA CONTENENTE IL FILE XML PRIVO DI ELEMENTI FITTIZI//////////
@@ -108,13 +107,14 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				echo"<form action = \"$autocall\" method=\"post\">";/*form con auto chiamata*/
 				for($i=0; $i<sizeof($elementi); $i++){
 					$telefono= $elementi->item($i);
+					$idvalue=$telefono->getAttribute('id'); //otteniamo attributo con metodo getAttribute
 					///////////SCORRIAMO L'ALBERO ED ESTRAIAMO ELEMENTI DI INTERESSE////////////
 					$modello= $telefono->firstChild;
 					$nome= $modello->firstChild; ///il primo figlio del nodo modello è nome estraiamolo
 					$nomevalue= $nome->textContent;
 					$prezzo= $modello->nextSibling; /////nextSibling ci porta al prossimo elemento
 					$prezzovalue= $prezzo->textContent;
-					echo"<p><input type=\"radio\"name=\"id\" value="; echo $idvalue;echo "><strong><a style=\"text-decoration:none;\"href=\"info.php\" title= \"scheda tecnica\">$nomevalue ($prezzovalue)</a></strong></p>"; /*stampiamo i modelli e prezzi*/
+					echo"<p><input type=\"radio\"name=\"id\" value=";echo $idvalue;echo "><strong><a style=\"text-decoration:none;\"href=\"info.php\" title= \"scheda tecnica\">$nomevalue ($prezzovalue &euro;)</a></strong></p>"; /*stampiamo i modelli e prezzi*/
 					
 				}
 				echo"<input type=\"submit\"value=\"aggiungi al carrello\">";/*bottone action del form*/
@@ -130,22 +130,28 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				$_SESSION['spesa_attuale']=0; /*queste variabili session stanno nel server*/
 				$_SESSION['carrello']=array();
 			}
+			
 			if(isset($_SESSION['username']) && isset($_SESSION['password'])){ //SE abbiamo selezionato qualcosa e se siamo loggati
 				if(isset($_POST['id'])){
 				$id=$_POST['id']; //id del telefono scelto
-				//cerchiamo il telefono selezionato nel dbs avendo ricevuto l'id
-				$sql="SELECT * FROM $telefonoTable WHERE id = '$id'";
-				$result=mysqli_query($connection,$sql); //inviamo query
-				if($result){ //query valida ora estraiamo informazioni dal risultato della query
-					if($row=mysqli_fetch_array($result)){ //se il telefono è presente nel dbs
-						array_push($_SESSION['carrello'],$row['nome']); //salviamo il modello nella sessione in un apposita variabile array
-						$_SESSION['spesa_attuale']+=$row['prezzo']; //aggiorniamo spesa corrente
+				$arraytelefoni=array();
+				//cerchiamo il telefono selezionato dall'array contenente tutti i telefoni
+				for($i=0; $i<sizeof($elementi); $i++)
+					array_push($arraytelefoni,$elementi->item($i)); //salviamo tutti i telefoni in un array
+				for($i=0; $i<sizeof($arraytelefoni);$i++){
+					if($arraytelefoni[$i]->getAttribute('id') == $id){ //cerchiamo da id 
+						$modello=$arraytelefoni[$i]->firstChild;
+						$nome= $modello->firstChild;
+						$nomevalue=$nome->textContent;
+						array_push($_SESSION['carrello'],$modello); //salviamo il modello nella sessione in un apposita variabile array
+						$prezzo=$modello->nextSibling;
+						$prezzovalue=(int)$prezzo->textContent; //casting necessario
+						$_SESSION['spesa_attuale']+=$prezzovalue; //aggiorniamo spesa corrente
+						$i=sizeof($arraytelefoni);
 					}
 				}
-				else{
-					echo "query non valida";
+				
 				}
-			}
 			}
 			else{
 				echo "<script> 
@@ -154,8 +160,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			}
 			if(isset($_SESSION['carrello'])&& isset($_SESSION['spesa_attuale'])){//se il carrello non è vuoto 
 							foreach($_SESSION['carrello'] as $item){ /*facciamo un ciclo foreach per stampare il contenuto*/
+								$nome=$item->firstChild;
+								$nomevalue=$nome->textContent;
 								echo"<p>";	
-								echo $item; /*stampiamo tutti i modelli che sono stati aggiunti al carrello*/
+								echo $nomevalue; /*stampiamo tutti i modelli che sono stati aggiunti al carrello*/
 								echo "</p>";
 							}
 							echo "<hr><strong>Totale spesa: ";echo $_SESSION['spesa_attuale']; echo"&euro;</strong>";

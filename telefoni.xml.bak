@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding= "UTF-8"?>
 <!DOCTYPE telefoni SYSTEM "telefoni.dtd" >
-<!DOCTYPE telefoni[
+<!--<!DOCTYPE telefoni[
 <!ELEMENT telefoni (telefono+)>
           <!ELEMENT telefono (modello,prezzo,componenti)>
                     <!ATTLIST telefono
@@ -34,7 +34,7 @@
                                     <!ELEMENT dimensioni (#PCDATA)>
                                     <!ATTLIST display 
 									    tipologia (OLED|AMOLED|IPS) "IPS">
-					] >
+					] > -->
               
                                 
 <telefoni>
@@ -71,7 +71,7 @@
 			<nome> Samsung s7</nome>
 			<annoproduzione> 2016 </annoproduzione>
 		</modello>
-		<prezzo> 499$ </prezzo>
+		<prezzo> 499 </prezzo>
 		<componenti>
 			<processore>
 				<nome>Dragon 478 </nome>
@@ -99,7 +99,7 @@
 			<nome> Samsung s20 </nome>
 			<annoproduzione> 2020 </annoproduzione>
 		</modello>
-		<prezzo> 799$ </prezzo>
+		<prezzo> 799 </prezzo>
 		<componenti>
 			<processore>
 				<nome> Hexynos </nome>
@@ -127,7 +127,7 @@
 			<nome> Iphone 11</nome>
 			<annoproduzione> 2021 </annoproduzione>
 		</modello>
-		<prezzo> 1099$ </prezzo>
+		<prezzo> 1099 </prezzo>
 		<componenti>
 			<processore>
 				<nome> Kirin 1000 </nome>
