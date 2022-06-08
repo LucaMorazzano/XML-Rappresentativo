@@ -1,4 +1,4 @@
-# PHP-RAPPRESENTATIVO2
+# XML-DOM-RAPPRESENTATIVO
 
 indirizzo repository GitHub: https://github.com/AndreaFiond/PHP-RAPPRESENTATIVO2
 nome componenti gruppo: Luca Morazzano 	matricola 1920476
