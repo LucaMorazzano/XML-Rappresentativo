@@ -1,11 +1,11 @@
-# PHP-RAPPRESENTATIVO2
+# XML DOM-RAPPRESENTATIVO3
 
-indirizzo repository GitHub: https://github.com/AndreaFiond/PHP-RAPPRESENTATIVO2
+indirizzo repository GitHub: https://github.com/LucaMorazzano/XML-Rappresentativo.git
 nome componenti gruppo: Luca Morazzano 	matricola 1920476
 						Andra Fionda 	matricola 1847591
 
 L'esercizio realizzato consiste in un mini sito web dinamico in grado di gestire la vendita di smartphone online.
-Per la realizzazione sono stati adoperati elementi di php combinati con mysql e qualche pezzo di codice in javascript per validare le form direttamente dal client.
+Per la realizzazione sono stati adoperati elementi di php combinati con xml metodo DOM e qualche pezzo di codice in javascript per validare le form direttamente dal client.
 
 #ISTRUZIONI PER L'USO
 
@@ -13,11 +13,10 @@ Per la realizzazione sono stati adoperati elementi di php combinati con mysql e 
 Per garantire il corretto funzionamento dell'applicazione come primo passo è necessario avviare la pagina install.php.
 Questa pagina consente, assieme al file connection.php,  l'installazione e il popolamento della base di dati e delle sue tabelle utilizzata sulla propria macchina.
 Verranno visualizzate a schermo le query inviate al dbms e al dbs con i relativi risultati che avranno colore verde in caso di successo o colore rosso in caso di errori.
-Nel dbs sono presenti tre tabelle :
+Nel dbs sono presenti due tabelle :
 - Utente: che contiene tre utenti "base" con i relativi username, password e spesa totale. Quest'ultima sarà incrementata al variare delle operazioni che l'utente effettuerà sul sito.
-- Telefono: che contiene un elenco di quattro smartphone identificati da: un id (autoincrementato e settato come primary key), il nome del modello e il prezzo.
 - Admin : che contiene un solo utente admin, avente username "admin" e password "admin". Tale utente gode di privilegi che gli utenti base non hanno, infatti
-è in grado, attraverso un apposito login, di inserire nuovi modelli di smartphone nel dbs.
+è in grado, attraverso un apposito login, di modificare il file xml.
 
 #2)LOGIN.PHP
 Una volta installata la base di dati sarà possibile effettuare il login. La pagina offre due modalità di accesso: una da utente e una da admin.
@@ -33,7 +32,7 @@ ad aggiungere un telefono al carrello saranno mostrati allert di errore (client-
 
 #3)TELEFONI.PHP
 Se il login è andato a buon fine verremo rimandati nella pagina telefoni.php. All'interno di essa troveremo un layout a due colonne e una sezione header che consente la navigazione nel sito.
-Nella sezione di sinistra troviamo i telefoni presenti nel dbs. Essi sono selezionabili, una volta selezionati compariranno nella sezione destra ovvero nel carrello, e sotto di essi verrà mostrato il costo totale della spesa.
+Nella sezione di sinistra troviamo i telefoni presenti nel doc xml. Essi sono selezionabili, una volta selezionati compariranno nella sezione destra ovvero nel carrello, e sotto di essi verrà mostrato il costo totale della spesa.
 Per realizzarla abbiamo effettuato un accesso al dbs ed estratto i dati dalla tabella Telefono. Una volta fatto questo è stata creata una variabile all'interno
 della sessione relativa all'utente chiamata carrello. Se il carrello è pieno possiamo procedere al checkout, in caso contrario non sarà possibile fare alcun checkout.
 E' possibile aggiungere prodotti al carrello ed è possibile svuotare completamente il carrello. Una volta effettuata la scelta dei prodotti da acquistare
@@ -58,7 +57,7 @@ con l'unica differenza che cerca compatibilità tra dati ricevuti e dati present
 Se i dati sono corretti e la form è valida saremo rimandati alla pagina Inserisci.php. In caso contrario saranno mostrati allert differenti in base all'errore.
 
 #2)INSERISCI.PHP
-Inserisci.php consente l'inserimento di nuovi modelli di smartphone nel dbs.
+Inserisci.php consente l'inserimento di nuovi modelli di smartphone nel documento xml.
 
 #PAGINE AUSILIARIE
 
