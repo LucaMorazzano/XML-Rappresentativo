@@ -103,7 +103,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				$doc->loadXML($xmlString);
 				$root = $doc->documentElement;
 				$elementi = $root->childNodes;
-				echo"<h3 style>MODELLI DISPONIBILI</h3><h5 style=\"text-decoration:underline\">(Per visualizzare scheda tecnica cliccare sul modello di interesse)</h5><hr>";
+				echo"<h3 style>MODELLI DISPONIBILI</h3><hr>";
 				echo"<form action = \"$autocall\" method=\"post\">";/*form con auto chiamata*/
 				for($i=0; $i<sizeof($elementi); $i++){
 					$telefono= $elementi->item($i);

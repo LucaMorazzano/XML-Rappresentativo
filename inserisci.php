@@ -131,7 +131,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 		$nuovoModello = $doc->createElement("modello",$modello);
 		$nuovoPrezzo = $doc->createElement("prezzo",$prezzo);
 		$nuovoProcessore = $doc->createElement("processore",$processore);
-		$nuovoSG = $doc->createElement("schedaGrafica",$sg);
+		$nuovoSG = $doc->createElement("schedagrafica",$sg);
 		$nuovoRam = $doc->createElement("ram",$ram);
 		$nuovoDisplay = $doc->createElement("display",$display);
 		
