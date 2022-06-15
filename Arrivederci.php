@@ -55,6 +55,9 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 						echo "<table style=\"margin-right:auto; margin-left:auto; margin-top:5%;\"border=\"1px\"> <tr><td><strong>Username</strong></td><td>$username</td></tr>
 						<tr><td><strong>Data login</strong></td><td>$datalogin</td></tr>
 						<tr style=\"background-color:red;\"><td><strong>Spesa totale utente</strong></td><td>$totalespeso &euro;</td></tr>";
+						unset($_SESSION['carrello']);
+						$_SESSION['spesa_attuale']=0;
+						$_SESSION['carrello']= array();
 					}
 				}
 				else /*altrimenti stampiamo carrello vuoto*/
