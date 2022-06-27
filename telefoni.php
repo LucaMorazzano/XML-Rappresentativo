@@ -113,8 +113,8 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 					$modellovalue=$modello->textContent;
 					$prezzo= $modello->nextSibling; /////nextSibling ci porta al prossimo elemento
 					$prezzovalue= $prezzo->textContent;
-					echo"<p><input type=\"radio\"name=\"id\" value=";echo $idvalue;echo "><strong><a style=\"text-decoration:none;\"href=\"info.php\" title= \"scheda tecnica\">$modellovalue ($prezzovalue &euro;)</a></strong></p>"; /*stampiamo i modelli e prezzi*/
-					
+					echo"<p style=\"color:blue;\"><input type=\"radio\"name=\"id\" value=";echo $idvalue;echo ">
+					<input style=\"font-size: 18px; background-color:beige; border:0px; color: blue; \"type=\"submit\" name=$idvalue value=\"$modellovalue ($prezzovalue &euro;)\" title=\"Mostra scheda tecnica\"></p>";
 				}
 				echo"<input type=\"submit\"value=\"aggiungi al carrello\">";/*bottone action del form*/
 				echo"</form>";

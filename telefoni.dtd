@@ -1,10 +1,10 @@
 
 <!ELEMENT telefoni (telefono+)>
-          <!ELEMENT telefono (modello,prezzo,processore, schedagrafica,ram,display)>
+          <!ELEMENT telefono (modello,prezzo,processore, schedagrafica,ram,display,immagine)>
                     <!ATTLIST telefono
                                     id  CDATA #REQUIRED
                       >
-                      
+                 
                       <!ELEMENT modello (#PCDATA)>
                     
                       <!ELEMENT prezzo (#PCDATA)>
@@ -17,4 +17,5 @@
                             
                       <!ELEMENT schedarete (#PCDATA)>
                                   
-                        <!ELEMENT display (#PCDATA)>
+                      <!ELEMENT display (#PCDATA)>
+				
