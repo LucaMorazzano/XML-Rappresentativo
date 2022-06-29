@@ -115,7 +115,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 					$modellovalue=$modello->textContent;
 					$prezzo= $modello->nextSibling; /////nextSibling ci porta al prossimo elemento
 					$prezzovalue= $prezzo->textContent;
-                     echo"<p style=\"color:blue;\"><input type=\"radio\"name=\"id\" value=";echo $idvalue;echo ">
+                    echo"<p style=\"color:blue;\"><input type=\"radio\"name=\"id\" value=";echo $idvalue;echo ">
 					$modellovalue ($prezzovalue &euro;)</p>";
 				}
 				echo"<input type=\"submit\"value=\"aggiungi al carrello\">";/*bottone action del form*/

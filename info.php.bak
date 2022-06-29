@@ -52,6 +52,15 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			padding:5%;
 			flex: 1 1 100px;
 		}
+		#right table{
+			margin-left:auto;
+			margin-right:auto;
+			font-size:25px;
+		}
+		.desc{
+			background-color:blue;
+			color:white;
+		}
 		/*SEZIONE LEFT*/
 		#left{
 			padding:5%;
@@ -106,7 +115,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 					$prezzo= $modello->nextSibling; /////nextSibling ci porta al prossimo elemento
 					$prezzovalue= $prezzo->textContent;
 					echo"<p style=\"color:blue;\"><input type=\"radio\"name=\"id\" value=";echo $idvalue;echo ">
-					$modellovalue ($prezzovalue &euro;)</p>";
+					$modellovalue ($prezzovalue &euro;) </p>";
 				}
 				echo"<input type=\"submit\" name=\"visualizza\" value=\"visualizza\">";/*bottone action del form*/
 				echo"</form>";
@@ -115,6 +124,12 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 		<div id="right">
 			<h3>SCHEDA TECNICA</h3><hr>
 			<?php 
+			$modellovalue="";
+			$prezzovalue="";
+			$processorevalue="";
+			$schedagraficavalue="";
+			$ramvalue="";
+			$displayvalue="";
 			if(isset($_POST['visualizza'])){
 				if(isset($_POST['id'])){
 				$id=$_POST['id']; //id del telefono scelto
@@ -130,19 +145,18 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 						$schedagraficavalue=$schedagrafica->textContent;
 						$ram=$schedagrafica->nextSibling;
 						$ramvalue=$ram->textContent;
-						$schedadirete=$ram->nextSibling;
-						$schedadiretevalue=$schedadirete->textContent;
-						$display=$schedadirete->nextSibling;
+						$display=$ram->nextSibling;
 						$displayvalue=$display->textContent;
 						$i=sizeof($elementi);
 					}
-					echo "	$modellovalue <br /> 
-							$prezzovalue <br />
-							$processorevalue <br />
-							$schedagraficavalue <br />
-							$ramvalue <br />";
 				}
-								
+					echo "	<table border=\"1px\" cellpadding=\"5px\"><tbody>
+							<tr><td class=\"desc\">Nome</td><td>$modellovalue</td></tr> 
+							<tr><td class=\"desc\">Prezzo</td><td>$prezzovalue&euro;</td></tr>
+							<tr><td class=\"desc\">Processore</td><td>$processorevalue</td></tr>
+							<tr><td class=\"desc\">GPU</td><td>$schedagraficavalue</td></tr>
+							<tr><td class=\"desc\">Ram</td><td>$ramvalue</td></tr>
+							<tr><td class=\"desc\">Display</td><td>$displayvalue</td></tr> </tbody></table><hr>";			
 				}
 			}
 			$connection->close();

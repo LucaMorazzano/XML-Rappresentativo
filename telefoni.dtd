@@ -15,7 +15,6 @@
                                           
                       <!ELEMENT ram (#PCDATA)>
                             
-                      <!ELEMENT schedarete (#PCDATA)>
                                   
                       <!ELEMENT display (#PCDATA)>
 				
