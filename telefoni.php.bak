@@ -75,8 +75,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	<div id="header">
 		<ul>
 			<li><a href="telefoni.php" title="Shop">Shop</a></li>
+			<li><a href="info.php" title="Scheda tecnica">Informazioni dispositivi</a></li>
 			<li><a href="checkout.php" title="Checkout">Checkout</a></li>
 			<li><a href="Logout.php" title="Logout">Logout</a></li>
+			
 		</ul>
 	</div>
 	<div class="main">
@@ -113,9 +115,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 					$modellovalue=$modello->textContent;
 					$prezzo= $modello->nextSibling; /////nextSibling ci porta al prossimo elemento
 					$prezzovalue= $prezzo->textContent;
-					echo"<p style=\"color:blue;\"><input type=\"radio\"name=\"id\" value=";echo $idvalue;echo ">
-					<input style=\"font-size: 18px; background-color:beige; border:0px; color: blue; \"type=\"submit\" name=$idvalue value=\"$modellovalue ($prezzovalue &euro;)\" title=\"Mostra scheda tecnica\"></p>";
-					
+					$img=$telefono->lastChild;
+					$imgvalue=$img->textContent;
+                     echo"<p style=\"color:blue;\"><input type=\"radio\"name=\"id\" value=";echo $idvalue;echo ">
+					$modellovalue ($prezzovalue &euro;)</p>";
 				}
 				echo"<input type=\"submit\"value=\"aggiungi al carrello\">";/*bottone action del form*/
 				echo"</form>";

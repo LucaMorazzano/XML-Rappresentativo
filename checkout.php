@@ -62,6 +62,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	<div id="header">
 		<ul>
 			<li><a href="telefoni.php" title="Shop">Shop</a></li>
+			<li><a href="info.php" title="Scheda tecnica">Informazioni dispositivi</a></li>
 			<li><a href="checkout.php" title="Checkout">Checkout</a></li>
 			<li><a href="Logout.php" title="Logout">Logout</a></li>
 		</ul>

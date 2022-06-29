@@ -87,7 +87,6 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				echo "<tr class=\"borderrow\">
 						<td> TOTALE ";echo $_SESSION['spesa_attuale'];echo"&euro; </td></tr></table>";
 				echo "</div>"; /*fine div main content*/
-				unset($_SESSION['carrello']);
 				echo "<form action=\"Arrivederci.php\" method=\"post\"><p><input type=\"submit\" name=\"paga\" value=\"Effettua pagamento\"></p></form>";/*form per pagare e terminare*/
 				}
 			else{ /*se il carrello è vuoto stampiamo un annuncio*/
