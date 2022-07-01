@@ -115,8 +115,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 					$modellovalue=$modello->textContent;
 					$prezzo= $modello->nextSibling; /////nextSibling ci porta al prossimo elemento
 					$prezzovalue= $prezzo->textContent;
-                     echo"<p style=\"color:blue;\"><input type=\"radio\"name=\"id\" value=";echo $idvalue;echo ">
-					$modellovalue ($prezzovalue &euro;)</p>";
+					$immagine=$telefono->lastChild;
+					$immaginevalue=$immagine->textContent;
+                    echo"<p style=\"color:blue;\"><input type=\"radio\"name=\"id\" value=";echo $idvalue;echo ">
+					$modellovalue ($prezzovalue &euro;)<img src=\"immagini/$immaginevalue\" alt=\"Immagine non disponibile per questo prodotto\" height=\"200px\" width=\"200px\"/></p>";
 				}
 				echo"<input type=\"submit\"value=\"aggiungi al carrello\">";/*bottone action del form*/
 				echo"</form>";

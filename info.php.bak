@@ -57,6 +57,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			margin-right:auto;
 			font-size:25px;
 		}
+		#right img{
+			height:200px;
+			width:200px;
+		}
 		.desc{
 			background-color:blue;
 			color:white;
@@ -130,6 +134,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			$schedagraficavalue="";
 			$ramvalue="";
 			$displayvalue="";
+			$immaginevalue="";
 			if(isset($_POST['visualizza'])){
 				if(isset($_POST['id'])){
 				$id=$_POST['id']; //id del telefono scelto
@@ -147,6 +152,8 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 						$ramvalue=$ram->textContent;
 						$display=$ram->nextSibling;
 						$displayvalue=$display->textContent;
+						$immagine=$display->nextSibling;
+						$immaginevalue=$immagine->textContent;
 						$i=sizeof($elementi);
 					}
 				}
@@ -156,7 +163,8 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 							<tr><td class=\"desc\">Processore</td><td>$processorevalue</td></tr>
 							<tr><td class=\"desc\">GPU</td><td>$schedagraficavalue</td></tr>
 							<tr><td class=\"desc\">Ram</td><td>$ramvalue</td></tr>
-							<tr><td class=\"desc\">Display</td><td>$displayvalue</td></tr> </tbody></table><hr>";			
+							<tr><td class=\"desc\">Display</td><td>$displayvalue</td></tr> 
+							<tr><td colspan=\"2\"><img src=\"immagini/$immaginevalue\" alt=\"phone\"/></td></tr></tbody></table>";			
 				}
 			}
 			$connection->close();

@@ -115,6 +115,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 		$sg=$_POST['sg'];
 		$ram=$_POST['ram'];
 		$display=$_POST['display'];
+		$immagine="";
 		require_once("connection.php");
 		$xmlString = "";
 			foreach ( file("telefoni.xml") as $node ) 
@@ -134,6 +135,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 		$nuovoSG = $doc->createElement("schedagrafica",$sg);
 		$nuovoRam = $doc->createElement("ram",$ram);
 		$nuovoDisplay = $doc->createElement("display",$display);
+		$nuovoImg= $doc->createElement("immagine",$immagine);
 		
 				
 		$nuovo->appendChild($nuovoModello);
@@ -142,6 +144,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 		$nuovo->appendChild($nuovoSG);
 		$nuovo->appendChild($nuovoRam);
 		$nuovo->appendChild($nuovoDisplay);
+		$nuovo->appendChild($nuovoImg);
 		
 		//inseriamo il nodo nel documento
 		$root->insertBefore($nuovo,$primo);

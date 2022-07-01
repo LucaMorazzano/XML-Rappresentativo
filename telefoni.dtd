@@ -17,4 +17,6 @@
                             
                                   
                       <!ELEMENT display (#PCDATA)>
+                      
+                      <!ELEMENT immagine (#PCDATA)>
 				
